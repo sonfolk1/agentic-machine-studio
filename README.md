@@ -31,7 +31,7 @@ npm run package
 Configuration
 On first launch, the app creates a settings.json in your Electron userData directory. From the settings (or in the app itself) you can configure:
 
-For the mobile app, you just download the ipa in agentic-studio-mobile/build and just sideload it. You should be able to connect it to your Mac using the hostname, along with using the app just as an ai chat.
+For the mobile app, you just download the ipa and sideload it. You should be able to connect it to your Mac using the hostname, along with using the app just as an ai chat.
 
 For the extension, just download the chrome-extension and load it unpacked (you need to have developer mode turned on)
 
