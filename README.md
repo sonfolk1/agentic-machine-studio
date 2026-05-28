@@ -75,18 +75,13 @@ bashnpm test
 bash# 1. Download the repo
 git clone https://github.com/sonfolk1/agentic-machine-studio.git
 
-# 2. Go into the folder
 cd agentic-machine-studio
 
-# 3. Install dependencies
 npm install
 
-# 4a. Run in development mode (easiest to try it out)
 npm run dev:electron
 
-# --- OR ---
-
-# 4b. Build a packaged .app file you can keep in your Applications folder
+# or build a packaged .app file you can keep in your Applications folder
 npm run package
 
 # Troubleshooting
