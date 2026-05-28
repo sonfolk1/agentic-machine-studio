@@ -1,11 +1,11 @@
-Agentic Studio
+# Agentic Studio
 A standalone MacOS desktop app (and an iOS app) for running autonomous AI loops with full local filesystem and shell access. Built with Electron.
 
-What it does (or should do)
+# What it does (or should do)
 Connects to OpenRouter and lets you run AI agents (Claude, ChatGPT, MiMo, Kimi, etc.) that can read/write files, execute shell commands, and bridge to Chrome — all from a native macOS desktop UI.
 In the process of adding a manual model selection to choose the new Opus 4.8 and legacy AI's like GLM 5
 
-Tech stack
+# Tech stack
 
 Electron — native desktop shell
 React 18 + TypeScript — renderer UI
@@ -15,7 +15,7 @@ Zustand — state management
 MCP SDK — Model Context Protocol integration
 OpenRouter — LLM API backend
 
-Getting started
+# Getting started
 You basically just run a few commands in terminal to set everything up
 
 bashnpm install
