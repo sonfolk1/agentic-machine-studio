@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Agentic Studio Bridge</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        width: 260px;
+        background: #101012;
+        color: #e9e9ec;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+        padding: 14px 14px 12px;
+      }
+      .title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .badge {
+        width: 18px;
+        height: 18px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #c98a5b, #e0a87a);
+        display: grid;
+        place-items: center;
+        color: #0b0b0c;
+        font-weight: 700;
+        font-size: 10px;
+      }
+      .row {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12.5px;
+        color: #c7c7cc;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #555;
+      }
+      .dot.on { background: #4ade80; box-shadow: 0 0 0 3px rgba(74,222,128,0.18); }
+      .hint {
+        margin-top: 10px;
+        font-size: 11px;
+        color: #6b6b75;
+        line-height: 1.45;
+      }
+      button {
+        margin-top: 12px;
+        width: 100%;
+        height: 28px;
+        border-radius: 6px;
+        background: #1a1a1d;
+        color: #c7c7cc;
+        border: 1px solid rgba(255,255,255,0.08);
+        font: inherit;
+        cursor: pointer;
+      }
+      button:hover { background: #1f1f23; color: #e9e9ec; }
+      code { color: #c98a5b; font-family: 'SF Mono', Menlo, monospace; }
+    </style>
+  </head>
+  <body>
+    <div class="title">
+      <div class="badge">A</div>
+      <div>Agentic Studio Bridge</div>
+    </div>
+    <div class="row">
+      <div id="dot" class="dot"></div>
+      <div id="status">Checking…</div>
+    </div>
+    <div class="hint">
+      Open Agentic Studio. The desktop app listens on
+      <code>ws://127.0.0.1:8765</code>.
+    </div>
+    <pre id="diag" style="
+      margin: 10px 0 0;
+      padding: 8px 10px;
+      background: #0b0b0c;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      font: 10.5px/1.45 'SF Mono', Menlo, monospace;
+      color: #9a9aa3;
+      white-space: pre-wrap;
+      max-height: 120px;
+      overflow: auto;
+    "></pre>
+    <button id="reconnect">Reconnect</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

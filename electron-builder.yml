@@ -1,0 +1,24 @@
+appId: com.agenticstudio.app
+productName: Agentic Studio
+copyright: Copyright © 2026 Agentic Studio
+asar: true
+directories:
+  buildResources: build
+  output: release
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - target: dir
+      arch:
+        - arm64
+        - x64
+  darkModeSupport: true
+  hardenedRuntime: false
+  gatekeeperAssess: false
+  identity: null
+extraMetadata:
+  main: dist-electron/main.js

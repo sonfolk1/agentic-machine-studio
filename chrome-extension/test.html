@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Agentic Studio — WS test</title>
+    <style>
+      body { font: 13px -apple-system, system-ui, sans-serif; background:#101012; color:#e9e9ec; padding: 20px; }
+      pre  { background:#0b0b0c; border:1px solid #2a2a2e; padding:12px; border-radius:6px; white-space: pre-wrap; }
+      button { background:#1a1a1d; color:#e9e9ec; border:1px solid #333; border-radius:6px; padding:6px 10px; margin-right:8px; cursor:pointer; }
+    </style>
+  </head>
+  <body>
+    <h2 style="margin-top:0">WebSocket reachability test</h2>
+    <p>Bypasses the Chrome extension entirely. Tests the same URL the extension uses.</p>
+    <button onclick="run('ws://127.0.0.1:8765')">Test 127.0.0.1</button>
+    <button onclick="run('ws://localhost:8765')">Test localhost</button>
+    <button onclick="document.getElementById('log').textContent=''">Clear</button>
+    <pre id="log"></pre>
+    <script>
+      const log = (m) => {
+        const el = document.getElementById('log');
+        el.textContent += `[${new Date().toISOString().slice(11,19)}] ${m}\n`;
+      };
+      function run(url) {
+        log('opening ' + url);
+        let ws;
+        try { ws = new WebSocket(url); }
+        catch (e) { log('CTOR THREW: ' + e.message); return; }
+        ws.onopen    = ()  => { log('OPEN'); ws.send(JSON.stringify({ id: 'test', method: 'list_tabs', params: {} })); };
+        ws.onmessage = (e) => log('MSG: ' + e.data.slice(0, 200));
+        ws.onerror   = ()  => log('ERROR event');
+        ws.onclose   = (e) => log('CLOSE code=' + e.code + ' reason="' + e.reason + '" wasClean=' + e.wasClean);
+      }
+    </script>
+  </body>
+</html>
