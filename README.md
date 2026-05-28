@@ -26,14 +26,28 @@ npm run dev:electron
 # Build for production
 npm run build
 
+# iOS
+The .ipa file is already in the repo root (AgenticStudioMobile.ipa). To install it on your iPhone:
+
+1. You'll need to sideload it, which requires a tool like AltStore or Sideloadly (both free).
+2. Download AltStore from altstore.io and install it on your Mac + iPhone.
+3. Open AltStore on your phone, tap +, and navigate to the .ipa file.
+4. The app connects back to your Mac via hostname to use the desktop agent.
+5. Alternatively, you can use iloader to download SideStore.
+
+Note: Sideloaded apps expire every 7 days with a free Apple ID. You'd need a paid Apple Developer account ($99/yr) to avoid this.
+
+# Chrome Extension
+
+In the cloned repo folder, there's a chrome-extension/ directory.
+Open Chrome and go to chrome://extensions
+Toggle Developer mode on (top right)
+Click Load unpacked and select the chrome-extension/ folder
+
 # Package as macOS app
 npm run package
 Configuration
 On first launch, the app creates a settings.json in your Electron userData directory. From the settings (or in the app itself) you can configure:
-
-For the mobile app, you just download the ipa and sideload it. You should be able to connect it to your Mac using the hostname, along with using the app just as an ai chat.
-
-For the extension, just download the chrome-extension and load it unpacked (you need to have developer mode turned on)
 
 Your OpenRouter API key (stored encrypted via Electron safeStorage)
 The Workspace directory (the folder the agent can read/write) (defaults to downloads(hopefully))
@@ -55,3 +69,38 @@ Plugins
 Drop plugin folders into the plugins directory (shown in Settings). The app ships with a sample plugin to get you started.
 Tests
 bashnpm test
+
+
+# more details about installing
+bash# 1. Download the repo
+git clone https://github.com/sonfolk1/agentic-machine-studio.git
+
+# 2. Go into the folder
+cd agentic-machine-studio
+
+# 3. Install dependencies
+npm install
+
+# 4a. Run in development mode (easiest to try it out)
+npm run dev:electron
+
+# --- OR ---
+
+# 4b. Build a packaged .app file you can keep in your Applications folder
+npm run package
+
+# Troubleshooting
+If it came with an error, quit electron *first* (right click, quit), and then wait to see if anything happens
+If nothing loads, do this:
+
+sed -i '' '/"type": "module"/d' package.json
+
+Then try again:
+
+bashnpm run dev:electron
+
+If you want to double-check it worked before re-running:
+
+bashgrep '"type"' package.json
+
+
