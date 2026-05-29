@@ -4,6 +4,11 @@ A standalone MacOS desktop app (and an iOS app) for running autonomous AI loops 
 # What it does (or should do)
 Connects to OpenRouter and lets you run AI agents (Claude, ChatGPT, MiMo, Kimi, etc.) that can read/write files, execute shell commands, and bridge to Chrome — all from a native macOS desktop UI.
 In the process of adding a manual model selection to choose the new Opus 4.8 and legacy AI's like GLM 5
+Current features:
+Reasoning level to make the models think more/less (minimal, low, medium, high)
+Vision input that sends screenshots to the ai (only works for a few as images aren't supported on some ai's)
+A large selection of flagship/popular AI models (Opus, ChatGPT, Gemini, Qwen, MiMo, etc.)
+A custom section for you to add a model that isn't listed (from https://openrouter.ai/models)
 
 # Tech stack
 
