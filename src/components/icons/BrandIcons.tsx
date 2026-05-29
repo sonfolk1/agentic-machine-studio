@@ -124,6 +124,15 @@ export const OwlIcon: React.FC<Props> = ({ size = 16, ...rest }) => (
   </svg>
 );
 
+// StepFun — three ascending steps
+export const StepFunIcon: React.FC<Props> = ({ size = 16, ...rest }) => (
+  <svg {...base(size)} {...rest}>
+    <rect x="3" y="14.5" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+    <rect x="9.25" y="9.25" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+    <rect x="15.5" y="4" width="5.5" height="5.5" rx="1.2" fill="currentColor" />
+  </svg>
+);
+
 export const BrandIcon: React.FC<Props & { brand: Brand }> = ({ brand, ...rest }) => {
   switch (brand) {
     case 'anthropic': return <AnthropicIcon {...rest} />;
@@ -135,6 +144,7 @@ export const BrandIcon: React.FC<Props & { brand: Brand }> = ({ brand, ...rest }
     case 'moonshot': return <MoonshotIcon {...rest} />;
     case 'minimax': return <MiniMaxIcon {...rest} />;
     case 'tsinghua': return <GLMIcon {...rest} />;
+    case 'stepfun': return <StepFunIcon {...rest} />;
     case 'openrouter': return <OwlIcon {...rest} />;
   }
 };
@@ -214,5 +224,14 @@ export const IconFile: React.FC<Props> = ({ size = 14, ...rest }) => (
 export const IconChevronDown: React.FC<Props> = ({ size = 12, ...rest }) => (
   <svg {...base(size)} {...rest} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M6 9l6 6 6-6" />
+  </svg>
+);
+
+// Sliders — used for the "Other" (bring-your-own model) section
+export const IconSliders: React.FC<Props> = ({ size = 14, ...rest }) => (
+  <svg {...base(size)} {...rest} stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 8h16M4 16h16" />
+    <circle cx="10" cy="8" r="2.4" fill="currentColor" stroke="none" />
+    <circle cx="15" cy="16" r="2.4" fill="currentColor" stroke="none" />
   </svg>
 );

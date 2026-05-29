@@ -8,6 +8,7 @@ export type Brand =
   | 'xai'
   | 'tsinghua'
   | 'deepseek'
+  | 'stepfun'
   | 'openrouter';
 
 export interface ModelEntry {
@@ -34,6 +35,7 @@ export const MODEL_GROUPS: ModelGroup[] = [
     brand: 'anthropic',
     name: 'Anthropic',
     models: [
+      { id: 'anthropic/claude-opus-4.8', label: 'opus-4.8' },
       { id: 'anthropic/claude-opus-4.7', label: 'opus-4.7' },
       { id: 'anthropic/claude-sonnet-4.6', label: 'sonnet-4.6' },
     ],
@@ -83,7 +85,10 @@ export const MODEL_GROUPS: ModelGroup[] = [
   {
     brand: 'tsinghua',
     name: 'Z.ai (GLM)',
-    models: [{ id: 'z-ai/glm-5.1', label: 'glm-5.1' }],
+    models: [
+      { id: 'z-ai/glm-5.1', label: 'glm-5.1' },
+      { id: 'z-ai/glm-5-turbo', label: 'glm-5-turbo' },
+    ],
   },
   {
     brand: 'deepseek',
@@ -91,6 +96,14 @@ export const MODEL_GROUPS: ModelGroup[] = [
     models: [
       { id: 'deepseek/deepseek-v4-pro', label: 'deepseek-v4-pro' },
       { id: 'deepseek/deepseek-v4-flash', label: 'deepseek-v4-flash' },
+    ],
+  },
+  {
+    brand: 'stepfun',
+    name: 'StepFun',
+    models: [
+      { id: 'stepfun/step-3.5-flash', label: 'step-3.5-flash' },
+      { id: 'stepfun/step-3.7-flash', label: 'step-3.7-flash' },
     ],
   },
   {

@@ -133,7 +133,11 @@ export const InputBar: React.FC = () => {
           {totalTokens > 0 && (
             <span title={`${totalTokens.toLocaleString()} tokens this session`}>
               {totalTokens.toLocaleString()} tok · {formatCost(cost)}
-              {currentModel ? ` · ${currentModel.entry.label}` : ''}
+              {currentModel
+                ? ` · ${currentModel.entry.label}`
+                : settings.selectedModel
+                  ? ` · ${settings.selectedModel}`
+                  : ''}
             </span>
           )}
         </div>

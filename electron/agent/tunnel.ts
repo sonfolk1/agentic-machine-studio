@@ -7,6 +7,7 @@
 import { spawn, ChildProcess } from 'node:child_process';
 import { BrowserWindow } from 'electron';
 import { execSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 
 export type TunnelState =
   | { status: 'stopped' }
@@ -28,12 +29,24 @@ export class TunnelManager {
   }
 
   static detect(): string | null {
+    // GUI-launched Electron apps on macOS often have a minimal PATH that
+    // excludes Homebrew, so `which cloudflared` can fail even when it's
+    // installed. Try `which` first, then fall back to common install paths.
     try {
       const p = execSync('which cloudflared', { encoding: 'utf8' }).trim();
-      return p || null;
+      if (p) return p;
     } catch {
-      return null;
+      // fall through to direct path checks
     }
+    const candidates = [
+      '/opt/homebrew/bin/cloudflared',   // Homebrew on Apple Silicon
+      '/usr/local/bin/cloudflared',      // Homebrew on Intel
+      '/opt/local/bin/cloudflared',      // MacPorts
+    ];
+    for (const c of candidates) {
+      if (existsSync(c)) return c;
+    }
+    return null;
   }
 
   start(port = 8765) {

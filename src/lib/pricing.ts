@@ -22,6 +22,8 @@ const PRICE_PER_M_TOKENS: Record<string, number> = {
   'z-ai/glm-5.1':                    1,
   'deepseek/deepseek-v4-pro':        3,
   'deepseek/deepseek-v4-flash':      0.3,
+  'stepfun/step-3.5-flash':          0.3,
+  'stepfun/step-3.7-flash':          0.5,
   'openrouter/owl-alpha':            0,
 };
 

@@ -418,6 +418,7 @@ export const brandLabel = (b: Brand): string => {
     case 'xai': return 'xAI';
     case 'tsinghua': return 'Tsinghua';
     case 'deepseek': return 'Deepseek';
+    case 'stepfun': return 'StepFun';
     case 'openrouter': return 'OpenRouter';
   }
 };
