@@ -1,0 +1,20 @@
+# Build artifacts
+build/
+DerivedData/
+*.ipa
+*.dSYM/
+*.xcarchive
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# macOS
+.DS_Store
+
+# Node (genproj script)
+node_modules/
+
+# Secrets
+.env
